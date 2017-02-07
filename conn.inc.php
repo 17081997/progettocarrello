@@ -1,8 +1,8 @@
 <?php
-	$pass = "1234";
+	$pass = "";
 	$user = "root";
 	$host = "localhost";
-	$db = "individuale_5bia";
+	$db = "quintab_utenti";
 	
 	try {
 			$dbh = new PDO('mysql:host=' . $host . ';dbname=' . $db, $user, $pass);
