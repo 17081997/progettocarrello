@@ -1,5 +1,6 @@
 <?php
 	include 'conn.inc.php';
+	session_start();
 ?>
 <html>
 <body>
@@ -17,11 +18,14 @@ if(isset($_POST['invio']))
 	$username = $_POST['testoUser'];
 	$password = $_POST['testoPassword'];
 	
-	$stmt = $dbh->prepare("SELECT count(u.idUtente) as conta FROM utente u where u.username = '$username' and u.password ='$password'");
+	$stmt = $dbh->prepare("SELECT count(u.idUtente) as conta FROM utenti u where u.usernameUtente = '$username' and u.passwordUtente ='$password'");
 	$stmt->execute();
 	$row = $stmt->fetch();
 	if($row['conta'] == 1){
-		echo "Login effettuato con successo";
+		//echo "Login effettuato con successo";
+		session_start();
+		$_SESSION['login'] = 1;
+		header('Location:areaPersonale.php');
 	}
 	else{
 		echo "Attenzione! Username o Password errati, tornare al login o registrarsi !<br>";

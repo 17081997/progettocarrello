@@ -15,13 +15,13 @@ if(isset($_POST['invio']))
 	}
 	else
 	{
-	$nome = $_POST['nomeUtente'];
-	$cognome = $_POST['cognomeUtente'];
-	$username = $_POST['usernameUtente'];
-	$password = $_POST['passwordUtente'];
+	$nome = $_POST['testoNome'];
+	$cognome = $_POST['testoCognome'];
+	$username = $_POST['testoUsername'];
+	$password = $_POST['testoPassword'];
 	//$password = md5($password);
 
-		$st = "INSERT INTO utenti(Nome,Cognome,Username,Password) VALUES('$nome','$cognome','$username','$password')"; 
+		$st = "INSERT INTO utenti(nomeUtente,cognomeUtente,usernameUtente,passwordUtente) VALUES('$nome','$cognome','$username','$password')"; 
 		$stm = $dbh->prepare($st);
 		$stm->execute();
 		
